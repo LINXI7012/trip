@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Plans - DeepTrip</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plans.css">
+    <link rel="stylesheet" href="css/travel-guide-details.css">
+    <link rel="stylesheet" href="css/travel-guide-journal-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/airplane-cursor.css">
+</head>
+<body class="plans-page">
+    <div class="fullscreen-bg"></div>
+    
+    <nav class="side-nav">
+        <ul>
+            <li><a href="create.html" class="nav-item">Create</a></li>
+            <li><a href="explore.html" class="nav-item">Explore</a></li>
+            <li><a href="personal.html" class="nav-item">Personal</a></li>
+            <li><a href="plans.html" class="nav-item">Plans</a></li>
+        </ul>
+    </nav>
+    
+    <a href="index.html" class="back-nav">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5L5 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    
+    <main class="content">
+        <div class="plans-header">
+            <h1 class="page-title">Your Travel Plans</h1>
+            <a href="create.html" class="btn btn-primary add-plan-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                创建新旅程
+            </a>
+        </div>
+        
+        <div class="journal-container">
+            <div class="journal-left">
+                <div class="plan-details-content">
+                    <!-- Plan details will be populated by JavaScript -->
+                    <div class="empty-state">
+                        <div class="empty-icon">✈️</div>
+                        <h3>选择一个旅行计划</h3>
+                        <p>请在右侧列表中选择一个旅行计划查看详情</p>
+                    </div>
+                </div>
+            </div>
+            <div class="journal-right">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past</button>
+                    <button class="tab-btn" data-tab="drafts">Drafts</button>
+                </div>
+                
+                <div class="tab-content active" data-tab-content="upcoming">
+                    <div class="plans-container">
+                        <!-- Plans will be populated by JavaScript -->
+                        <div class="empty-state">
+                            <div class="empty-icon">✈️</div>
+                            <h3>暂无旅行计划</h3>
+                            <p>通过问卷生成或从探索界面收藏的攻略将显示在这里</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" data-tab-content="past">
+                    <div class="empty-state">
+                        <div class="empty-icon">🏆</div>
+                        <h3>Trip History</h3>
+                        <p>Completed trips will appear here</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" data-tab-content="drafts">
+                    <div class="empty-state">
+                        <div class="empty-icon">📝</div>
+                        <h3>Trip Drafts</h3>
+                        <p>Save trip ideas and continue planning later</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trip-details-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Kyoto Trip</h2>
+                <button class="modal-close">×</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="trip-info">
+                    <div class="trip-dates">
+                        <div class="date-item">
+                            <div class="date-label">Departure</div>
+                            <div class="date-value">Nov 10, 2024</div>
+                        </div>
+                        <div class="date-separator"></div>
+                        <div class="date-item">
+                            <div class="date-label">Return</div>
+                            <div class="date-value">Nov 17, 2024</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trip-meta">
+                        <div class="meta-item">
+                            <div class="meta-icon">👥</div>
+                            <div class="meta-text">2 Travelers</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">💰</div>
+                            <div class="meta-text">$2,400 Budget</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">🌡️</div>
+                            <div class="meta-text">15-20°C</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-sections">
+                    <div class="section-tabs">
+                        <button class="section-tab active" data-section="timeline">Timeline</button>
+                        <button class="section-tab" data-section="packing">Packing List</button>
+                        <button class="section-tab" data-section="budget">Budget</button>
+                        <button class="section-tab" data-section="contacts">Contacts</button>
+                    </div>
+                    
+                    <div class="section-content active" data-section-content="timeline">
+                        <div class="timeline-container">
+                            <div class="day-timeline">
+                                <div class="timeline-day-header">
+                                    <div class="day-number">Day 1</div>
+                                    <div class="day-title">Arrival & Settling In</div>
+                                    <div class="day-date">Nov 10</div>
+                                </div>
+                                <div class="timeline-items">
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">14:30</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Arrive at Kansai International Airport</div>
+                                            <div class="timeline-notes">Terminal 1, JAL Flight 123</div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">16:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Check-in at Ryokan Sakura</div>
+                                            <div class="timeline-notes">Traditional Japanese inn with onsen</div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">18:30</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Dinner at Pontocho Alley</div>
+                                            <div class="timeline-notes">Traditional Kyoto cuisine</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="day-timeline">
+                                <div class="timeline-day-header">
+                                    <div class="day-number">Day 2</div>
+                                    <div class="day-title">Eastern Kyoto</div>
+                                    <div class="day-date">Nov 11</div>
+                                </div>
+                                <div class="timeline-items">
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">09:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Visit Kiyomizu-dera Temple</div>
+                                            <div class="timeline-notes">UNESCO World Heritage site with beautiful views</div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">12:30</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Lunch at Ninen-zaka</div>
+                                            <div class="timeline-notes">Traditional teahouses and cafes</div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">14:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Explore Gion District</div>
+                                            <div class="timeline-notes">Historic geisha district</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-outline btn-small show-more-days">View All 7 Days</button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content" data-section-content="packing">
+                        <div class="packing-list-container">
+                            <div class="packing-category">
+                                <div class="category-header">
+                                    <h3>Essentials</h3>
+                                    <div class="category-progress">3/5</div>
+                                </div>
+                                <ul class="packing-items">
+                                    <li class="packing-item checked">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Passport</span>
+                                    </li>
+                                    <li class="packing-item checked">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Travel Insurance</span>
+                                    </li>
+                                    <li class="packing-item checked">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Flight Tickets</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Credit Cards</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Japanese Yen</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="packing-category">
+                                <div class="category-header">
+                                    <h3>Clothing</h3>
+                                    <div class="category-progress">2/7</div>
+                                </div>
+                                <ul class="packing-items">
+                                    <li class="packing-item checked">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Light Jacket</span>
+                                    </li>
+                                    <li class="packing-item checked">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Comfortable Walking Shoes</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Socks (7 pairs)</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Underwear (7 pairs)</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">T-shirts (5)</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Jeans/Pants (3)</span>
+                                    </li>
+                                    <li class="packing-item">
+                                        <label class="item-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="item-name">Sweater/Hoodie</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <button class="btn btn-secondary add-item-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Add Item
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content" data-section-content="budget">
+                        <div class="budget-container">
+                            <div class="budget-summary">
+                                <div class="budget-amount">
+                                    <div class="amount-label">Total Budget</div>
+                                    <div class="amount-value">$2,400</div>
+                                </div>
+                                <div class="budget-progress">
+                                    <div class="progress-info">
+                                        <span>$1,850 Allocated</span>
+                                        <span>$550 Unallocated</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 77%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="budget-categories">
+                                <div class="budget-category">
+                                    <div class="category-icon" style="background-color: rgba(255, 107, 107, 0.2);">✈️</div>
+                                    <div class="category-details">
+                                        <div class="category-name">Flights</div>
+                                        <div class="category-allocation">$800 (33%)</div>
+                                    </div>
+                                </div>
+                                <div class="budget-category">
+                                    <div class="category-icon" style="background-color: rgba(217, 179, 16, 0.2);">🏨</div>
+                                    <div class="category-details">
+                                        <div class="category-name">Accommodation</div>
+                                        <div class="category-allocation">$600 (25%)</div>
+                                    </div>
+                                </div>
+                                <div class="budget-category">
+                                    <div class="category-icon" style="background-color: rgba(10, 35, 66, 0.2);">🍣</div>
+                                    <div class="category-details">
+                                        <div class="category-name">Food</div>
+                                        <div class="category-allocation">$300 (12.5%)</div>
+                                    </div>
+                                </div>
+                                <div class="budget-category">
+                                    <div class="category-icon" style="background-color: rgba(61, 153, 112, 0.2);">🚆</div>
+                                    <div class="category-details">
+                                        <div class="category-name">Transportation</div>
+                                        <div class="category-allocation">$150 (6.25%)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="currency-converter">
+                                <h3>Currency Converter</h3>
+                                <div class="converter-inputs">
+                                    <div class="converter-input">
+                                        <input type="number" value="1" min="0">
+                                        <select>
+                                            <option value="USD" selected>USD</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="GBP">GBP</option>
+                                        </select>
+                                    </div>
+                                    <div class="converter-equals">=</div>
+                                    <div class="converter-input">
+                                        <input type="number" value="142.81" disabled>
+                                        <select>
+                                            <option value="USD">USD</option>
+                                            <option value="JPY" selected>JPY</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="GBP">GBP</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content" data-section-content="contacts">
+                        <div class="contacts-container">
+                            <div class="emergency-contacts">
+                                <h3>Emergency Contacts</h3>
+                                <div class="contact-cards">
+                                    <div class="contact-card">
+                                        <div class="contact-icon">🚨</div>
+                                        <div class="contact-details">
+                                            <div class="contact-name">Emergency Services</div>
+                                            <div class="contact-number">110 (Police) / 119 (Ambulance)</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-card">
+                                        <div class="contact-icon">🏥</div>
+                                        <div class="contact-details">
+                                            <div class="contact-name">Kyoto University Hospital</div>
+                                            <div class="contact-number">+81 75-751-3111</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-card">
+                                        <div class="contact-icon">🏛️</div>
+                                        <div class="contact-details">
+                                            <div class="contact-name">US Embassy in Japan</div>
+                                            <div class="contact-number">+81 3-3224-5000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accommodations-contacts">
+                                <h3>Accommodation</h3>
+                                <div class="contact-card">
+                                    <div class="contact-icon">🏡</div>
+                                    <div class="contact-details">
+                                        <div class="contact-name">Ryokan Sakura</div>
+                                        <div class="contact-address">123 Gion-machi, Higashiyama-ku, Kyoto</div>
+                                        <div class="contact-number">+81 75-561-1234</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-outline">Share Trip</button>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+        
+        <div class="modal-overlay"></div>
+    </main>
+
+    <!-- Travel Guide Details Modal -->
+    <div class="travel-guide-overlay"></div>
+    <div class="travel-guide-modal">
+        <div class="travel-guide-header">
+            <h2 class="travel-guide-title">Travel Guide</h2>
+            <button class="travel-guide-close">×</button>
+        </div>
+        <div class="travel-guide-content">
+            <div class="travel-guide-container">
+                <!-- Travel guide content will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Travel Guide Modal -->
+    <div class="edit-guide-overlay"></div>
+    <div class="edit-guide-modal">
+        <div class="edit-guide-header">
+            <h2 class="edit-guide-title">编辑旅行攻略</h2>
+            <button class="edit-guide-close">×</button>
+        </div>
+        <div class="edit-guide-content">
+            <div class="edit-guide-container">
+                <div class="edit-section">
+                    <h3>操作选项</h3>
+                    <div class="edit-actions">
+                        <button id="deleteGuideBtn" class="btn btn-danger">删除攻略</button>
+                        <button id="modifyItineraryBtn" class="btn btn-primary">修改行程</button>
+                    </div>
+                </div>
+                
+                <div class="day-edit-section" style="display: none;">
+                    <h3>选择要修改的行程日</h3>
+                    <div class="day-select-container"></div>
+                    <div class="form-actions">
+                        <button type="button" id="backToEditBtn" class="btn btn-outline">返回</button>
+                    </div>
+                </div>
+                
+                <div class="day-edit-form" style="display: none;">
+                    <h3>修改行程信息</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="dayActivityInput">活动内容</label>
+                            <input type="text" id="dayActivityInput" class="form-control" placeholder="输入活动描述">
+                        </div>
+                        <div class="form-group">
+                            <label for="dayLocationInput">活动地点</label>
+                            <input type="text" id="dayLocationInput" class="form-control" placeholder="输入活动地点">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="backToDaysBtn" class="btn btn-outline">返回</button>
+                            <button type="button" id="saveDayBtn" class="btn btn-primary">保存修改</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="delete-confirm-section" style="display: none;">
+                    <h3>确认删除</h3>
+                    <p>您确定要删除这个旅行攻略吗？此操作不可撤销。</p>
+                    <div class="confirm-actions">
+                        <button id="cancelDeleteBtn" class="btn btn-outline">取消</button>
+                        <button id="confirmDeleteBtn" class="btn btn-danger">确认删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/airplane-cursor.js"></script>
+    <script src="js/progress-editor.js"></script>
+    <script src="js/plans-guide-enhancer.js"></script>
+    
+    <!-- 立即显示真实攻略的脚本 -->
+    <script>
+    (function() {
+        console.log('开始扫描真实攻略数据...');
+        
+        // 添加样式
+        const style = document.createElement('style');
+        style.textContent = `
+            .plan-card {
+                position: relative;
+            }
+            
+            .delete-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                opacity: 0.7;
+                backdrop-filter: blur(2px);
+            }
+            
+            .delete-button:hover {
+                background: rgba(231, 76, 60, 0.8);
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            
+            .delete-button svg {
+                width: 16px;
+                height: 16px;
+                fill: none;
+                stroke: white;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            
+            .delete-button:hover svg {
+                stroke: white;
+            }
+            
+            /* 模态框按钮样式优化 */
+            .btn-danger {
+                background-color: #e74c3c;
+                color: white;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-danger:hover {
+                background-color: #c0392b;
+                transform: scale(1.05);
+            }
+            
+            /* 确认删除对话框样式 */
+            .delete-confirm-section {
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .delete-confirm-section h3 {
+                color: #e74c3c;
+                margin-bottom: 15px;
+            }
+            
+            .confirm-actions {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            /* 改进的确认删除对话框 */
+            #deleteConfirmModal {
+                background-color: rgb(30, 30, 30);
+                border: 2px solid #e74c3c;
+                box-shadow: 0 5px 30px rgba(231, 76, 60, 0.7);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            
+            .delete-confirmation-container {
+                padding: 25px;
+                text-align: center;
+            }
+            
+            .delete-icon {
+                font-size: 48px;
+                color: #e74c3c;
+                margin-bottom: 15px;
+            }
+            
+            .delete-title {
+                font-size: 24px;
+                color: #e74c3c;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+            
+            .delete-message {
+                font-size: 16px;
+                color: #ffffff;
+                margin-bottom: 25px;
+                line-height: 1.5;
+            }
+            
+            .delete-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .delete-cancel-btn {
+                padding: 10px 20px;
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .delete-cancel-btn:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+            
+            .delete-confirm-btn {
+                padding: 10px 20px;
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .delete-confirm-btn:hover {
+                background-color: #c0392b;
+                transform: scale(1.05);
+            }
+            
+            /* 自定义覆盖层 */
+            .modal-backdrop {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 241, 242, 0.8); // 淡粉色背景
+                backdrop-filter: blur(5px);
+                z-index: 999;
+                display: none;
+            }
+            
+            .modal-backdrop.active {
+                display: block;
+            }
+            
+            /* 隐藏分页控件 */
+            .journal-pagination {
+                display: none !important;
+            }
+            
+            /* 进度编辑按钮样式 */
+            .progress-edit-btn, .progress-edit-btn-card {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                font-size: 14px;
+                opacity: 0.7;
+                transition: all 0.3s ease;
+                padding: 0;
+                margin-left: 8px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .progress-edit-btn:hover, .progress-edit-btn-card:hover {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            
+            .progress-edit-btn-card {
+                font-size: 12px;
+            }
+            
+            /* 进度滑块样式 */
+            #progressSlider {
+                -webkit-appearance: none;
+                appearance: none;
+                height: 10px;
+                background: #ddd;
+                border-radius: 5px;
+                outline: none;
+            }
+            
+            #progressSlider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                background: #a2977e;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+            
+            #progressSlider::-webkit-slider-thumb:hover {
+                background: #8a816c;
+                transform: scale(1.1);
+            }
+            
+            #progressSlider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                background: #a2977e;
+                border-radius: 50%;
+                cursor: pointer;
+                border: none;
+                transition: all 0.2s ease;
+            }
+            
+            #progressSlider::-moz-range-thumb:hover {
+                background: #8a816c;
+                transform: scale(1.1);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 存储所有找到的攻略
+        let realGuides = [];
+        
+        // 扫描所有localStorage查找攻略数据
+        function scanForRealGuides() {
+            // 扫描所有localStorage键
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                try {
+                    const value = localStorage.getItem(key);
+                    
+                    // 尝试解析JSON
+                    try {
+                        const parsedData = JSON.parse(value);
+                        
+                        // 检查是否是攻略数组
+                        if (Array.isArray(parsedData)) {
+                            parsedData.forEach(item => {
+                                if ((item.destination || item.title) && 
+                                    (item.highlights || item.dailyPlan || item.duration)) {
+                                    // 找到一个攻略
+                                    if (!realGuides.some(g => g.id === item.id)) {
+                                        realGuides.push(item);
+                                    }
+                                }
+                            });
+                        } 
+                        // 检查单个攻略对象
+                        else if (typeof parsedData === 'object' && 
+                                (parsedData.destination || parsedData.title) && 
+                                (parsedData.highlights || parsedData.dailyPlan || parsedData.duration)) {
+                            if (!realGuides.some(g => g.id === parsedData.id)) {
+                                realGuides.push(parsedData);
+                            }
+                        }
+                    } catch (e) {
+                        // 不是JSON，忽略
+                    }
+                } catch (e) {
+                    console.error('读取localStorage键时出错:', key, e);
+                }
+            }
+            
+            // 过滤掉自动生成的默认攻略
+            realGuides = filterOutDefaultGuides(realGuides);
+            
+            // 保存找到的攻略
+            if (realGuides.length > 0) {
+                console.log('找到', realGuides.length, '个真实攻略');
+                localStorage.setItem('savedGuides', JSON.stringify(realGuides));
+                
+                // 立即显示攻略
+                displayRealGuides();
+            } else {
+                console.log('未找到任何真实攻略');
+            }
+        }
+        
+        // 过滤掉自动生成的默认攻略
+        function filterOutDefaultGuides(guides) {
+            return guides.filter(guide => {
+                // 过滤掉ID为1001和1002的默认攻略
+                if (guide.id === 1001 || guide.id === 1002) {
+                    return false;
+                }
+                
+                // 过滤掉包含"自动创建的默认旅行计划"备注的攻略
+                if (guide.notes && guide.notes.includes('自动创建的默认旅行计划')) {
+                    return false;
+                }
+                
+                // 过滤掉默认目的地的攻略 (京都之旅、巴黎之旅)
+                if ((guide.title === '京都之旅' && guide.destination === '京都，日本') || 
+                    (guide.title === '巴黎之旅' && guide.destination === '巴黎，法国')) {
+                    return false;
+                }
+                
+                // 保留真实攻略
+                return true;
+            });
+        }
+        
+        // 显示找到的真实攻略
+        function displayRealGuides() {
+            if (realGuides.length === 0) return;
+            
+            // 获取容器元素
+            const plansContainer = document.querySelector('.plans-container');
+            if (!plansContainer) return;
+            
+            // 创建HTML
+            let plansHTML = '';
+            
+            // 显示所有攻略，不分页
+            realGuides.forEach(guide => {
+                // 创建显示日期
+                const today = new Date();
+                const startDate = new Date(today);
+                startDate.setDate(today.getDate() + 30);
+                const endDate = new Date(startDate);
+                const duration = parseInt(guide.duration) || 7;
+                endDate.setDate(startDate.getDate() + duration);
+                
+                const formattedStartDate = startDate.toLocaleDateString('en-US', { 
+                    year: 'numeric', month: 'short', day: 'numeric' 
+                });
+                const formattedEndDate = endDate.toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'short', day: 'numeric'
+                });
+                
+                // 使用自定义进度或从localStorage获取的进度
+                let completionPercentage;
+                
+                // 如果攻略有自定义进度，直接使用
+                if (guide.customProgress !== undefined) {
+                    completionPercentage = guide.customProgress;
+                } else {
+                    // 默认的基础进度
+                    completionPercentage = 25; 
+                    
+                    // 保存默认进度到localStorage，以便后续同步
+                    if (!guide.customProgress) {
+                        // 添加到guide对象
+                        guide.customProgress = completionPercentage;
+                        
+                        // 保存到localStorage
+                        let savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+                        const guideIndex = savedGuides.findIndex(g => g.id == guide.id);
+                        if (guideIndex !== -1) {
+                            savedGuides[guideIndex].customProgress = completionPercentage;
+                            localStorage.setItem('savedGuides', JSON.stringify(savedGuides));
+                        }
+                    }
+                }
+                
+                plansHTML += `
+                    <div class="plan-card" data-plan-id="${guide.id}">
+                        <div class="plan-header">
+                            <h3>${guide.title || guide.destination} <span class="plan-badge">My Guide</span></h3>
+                            <div class="plan-dates">${formattedStartDate} - ${formattedEndDate}</div>
+                        </div>
+                        <div class="plan-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${completionPercentage}%"></div>
+                            </div>
+                            <div class="progress-text">${completionPercentage}% ready</div>
+                        </div>
+                        <button class="delete-button" data-plan-id="${guide.id}" title="删除攻略">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            // 显示攻略
+            plansContainer.innerHTML = plansHTML;
+            
+            // 为每个删除按钮添加事件监听
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation(); // 阻止事件冒泡，避免触发卡片点击
+                    const planId = this.dataset.planId;
+                    console.log('删除按钮被点击，攻略ID=', planId);
+                    
+                    const guide = realGuides.find(g => g.id == planId);
+                    if (guide) {
+                        console.log('找到要删除的攻略:', guide.title || guide.destination);
+                        showDeleteConfirmation(guide);
+                    } else {
+                        console.error('未找到要删除的攻略，ID=', planId);
+                    }
+                });
+            });
+            
+            // 添加点击事件处理
+            const planCards = document.querySelectorAll('.plan-card');
+            planCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // 移除所有卡片的active类
+                    planCards.forEach(c => c.classList.remove('active'));
+                    
+                    // 为当前卡片添加active类
+                    this.classList.add('active');
+                    
+                    // 获取计划ID并显示详情
+                    const planId = this.dataset.planId;
+                    const guide = realGuides.find(g => g.id == planId);
+                    
+                    if (guide) {
+                        displayPlanDetails(guide);
+                    }
+                });
+            });
+            
+            // 默认选择第一个攻略
+            if (planCards.length > 0) {
+                planCards[0].click();
+            }
+            
+            // 初始化进度编辑功能
+            if (window.progressEditor && typeof window.progressEditor.init === 'function') {
+                window.progressEditor.init();
+            }
+            
+            // 触发计划显示事件，确保进度同步
+            document.dispatchEvent(new CustomEvent('plansDisplayed'));
+        }
+        
+        // 显示攻略详情
+        function displayPlanDetails(guide) {
+            const detailsContainer = document.querySelector('.plan-details-content');
+            if (!detailsContainer) return;
+            
+            // 创建日期
+            const today = new Date();
+            const startDate = new Date(today);
+            startDate.setDate(today.getDate() + 30);
+            const endDate = new Date(startDate);
+            const duration = parseInt(guide.duration) || 7;
+            endDate.setDate(startDate.getDate() + duration);
+            
+            const formattedStartDate = startDate.toLocaleDateString('en-US', { 
+                year: 'numeric', month: 'short', day: 'numeric' 
+            });
+            const formattedEndDate = endDate.toLocaleDateString('en-US', {
+                year: 'numeric', month: 'short', day: 'numeric'
+            });
+            
+            // 计算距离旅行的天数
+            const daysUntil = 30; // 默认30天
+            const daysUntilText = `${daysUntil} days until your trip`;
+            
+            // 为每个攻略动态生成任务
+            const tasks = [
+                { id: guide.id + '1', text: 'Book flight', completed: false },
+                { id: guide.id + '2', text: 'Reserve accommodation', completed: false },
+                { id: guide.id + '3', text: 'Plan daily activities', completed: true }
+            ];
+            
+            // 基于攻略内容添加特定任务
+            if (guide.highlights && guide.highlights.length > 3) {
+                tasks.push({ id: guide.id + '4', text: 'Research attractions', completed: true });
+            }
+            
+            if (guide.dailyPlan && guide.dailyPlan.length > 0) {
+                tasks.push({ id: guide.id + '5', text: 'Finalize itinerary', completed: guide.dailyPlan.length > 3 });
+            }
+            
+            // 基于ID决定某些任务的完成状态，确保每个攻略有独特进度
+            const guideSeed = parseInt(String(guide.id).slice(-2)) || 0;
+            if (guideSeed % 2 === 0) {
+                tasks[0].completed = true; // 偶数ID的攻略已预订航班
+            }
+            
+            if (guideSeed % 3 === 0) {
+                tasks[1].completed = true; // 能被3整除的ID的攻略已预订住宿
+            }
+            
+            // 再添加两个任务
+            tasks.push({ id: guide.id + '6', text: 'Pack luggage', completed: false });
+            tasks.push({ id: guide.id + '7', text: 'Exchange currency', completed: guideSeed % 5 === 0 });
+            
+            // 获取完成进度（自定义或基于任务计算）
+            let completionPercentage;
+            
+            // 如果有自定义进度，使用它
+            if (guide.customProgress !== undefined) {
+                completionPercentage = guide.customProgress;
+            } else {
+                // 计算基于任务的进度
+                const completedTasks = tasks.filter(t => t.completed).length;
+                completionPercentage = Math.round((completedTasks / tasks.length) * 100);
+            }
+            
+            // 创建HTML
+            let detailsHTML = `
+                <div class="plan-details">
+                    <div class="plan-details-header">
+                        <h2>${guide.title || guide.destination}</h2>
+                        <div class="plan-details-dates">${formattedStartDate} - ${formattedEndDate}</div>
+                        <div class="plan-details-countdown">${daysUntilText}</div>
+                    </div>
+                    <div class="plan-details-body">
+                        <div class="plan-details-section">
+                            <h3>准备进度</h3>
+                            <div class="plan-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${completionPercentage}%"></div>
+                                </div>
+                                <div class="progress-text">${completionPercentage}% complete</div>
+                            </div>
+                        </div>
+                        <div class="plan-details-section">
+                            <h3>准备任务</h3>
+                            <ul class="task-list">
+            `;
+            
+            // 添加任务
+            tasks.forEach(task => {
+                detailsHTML += `
+                    <li class="task-item ${task.completed ? 'completed' : ''}">
+                        <label class="task-checkbox">
+                            <input type="checkbox" ${task.completed ? 'checked' : ''} data-task-id="${task.id}">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="task-text">${task.text}</span>
+                    </li>
+                `;
+            });
+            
+            // 添加攻略信息
+            detailsHTML += `
+                            </ul>
+                        </div>
+                        <div class="plan-details-section">
+                            <h3>旅行指南</h3>
+                            <div class="guide-overview">
+                                <p>${guide.overview || '为您定制的专属旅行计划'}</p>
+                            </div>
+            `;
+            
+            // 添加亮点
+            if (guide.highlights && guide.highlights.length > 0) {
+                detailsHTML += `
+                    <div class="guide-highlights">
+                        <h4>行程亮点</h4>
+                        <ul>
+                `;
+                
+                guide.highlights.forEach(highlight => {
+                    detailsHTML += `<li>${highlight}</li>`;
+                });
+                
+                detailsHTML += `
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            // 完成HTML
+            detailsHTML += `
+                            <button class="btn btn-small btn-highlight view-full-guide" data-plan-id="${guide.id}">查看完整攻略</button>
+                            <button class="btn btn-small btn-danger delete-guide" data-plan-id="${guide.id}">删除攻略</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 显示详情
+            detailsContainer.innerHTML = detailsHTML;
+            
+            // 添加查看完整攻略按钮事件
+            document.querySelector('.view-full-guide').addEventListener('click', function() {
+                showTravelGuideDetails(guide);
+            });
+            
+            // 添加删除攻略按钮事件
+            document.querySelector('.delete-guide').addEventListener('click', function() {
+                showDeleteConfirmation(guide);
+            });
+            
+            // 初始化进度编辑功能
+            if (window.progressEditor && typeof window.progressEditor.init === 'function') {
+                setTimeout(() => {
+                    window.progressEditor.init();
+                    
+                    // 触发计划显示事件，确保进度同步
+                    document.dispatchEvent(new CustomEvent('plansDisplayed'));
+                }, 100);
+            }
+        }
+        
+        // 显示完整旅行攻略
+        function showTravelGuideDetails(guide) {
+            const modal = document.querySelector('.travel-guide-modal');
+            const overlay = document.querySelector('.travel-guide-overlay');
+            const container = document.querySelector('.travel-guide-container');
+            const title = document.querySelector('.travel-guide-title');
+            
+            if (!modal || !overlay || !container) return;
+            
+            // 设置标题
+            title.textContent = guide.title || guide.destination;
+            
+            // 创建内容HTML
+            let guideHTML = `
+                <div class="guide-section guide-destination">
+                    <h3>${guide.destination}</h3>
+                    <p>${guide.overview || '为您定制的专属旅行计划'}</p>
+                </div>
+            `;
+            
+            // 添加亮点
+            if (guide.highlights && guide.highlights.length > 0) {
+                guideHTML += `
+                    <div class="guide-section guide-highlights">
+                        <h4>行程亮点</h4>
+                        <ul>
+                `;
+                
+                guide.highlights.forEach(highlight => {
+                    guideHTML += `<li>${highlight}</li>`;
+                });
+                
+                guideHTML += `
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            // 添加每日计划
+            if (guide.dailyPlan && guide.dailyPlan.length > 0) {
+                guideHTML += `
+                    <div class="guide-section guide-daily-plan">
+                        <h4>每日行程</h4>
+                        <div class="guide-daily-plan-container">
+                `;
+                
+                guide.dailyPlan.forEach(day => {
+                    guideHTML += `
+                        <div class="guide-day-card">
+                            <div class="guide-day-number">第 ${day.day} 天</div>
+                            <div class="guide-day-details">
+                                <h5>${day.activity}</h5>
+                                <p class="day-location">${day.location}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                guideHTML += `
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 添加备注
+            if (guide.notes) {
+                guideHTML += `
+                    <div class="guide-section guide-notes">
+                        <h4>旅行备注</h4>
+                        <p>${guide.notes}</p>
+                    </div>
+                `;
+            }
+            
+            // 添加准备进度信息
+            const completionPercentage = guide.customProgress !== undefined ? 
+                guide.customProgress : 
+                Math.round(Math.random() * 50) + 25; // 如果没有自定义进度，生成随机进度
+            
+            guideHTML += `
+                <div class="guide-section guide-progress">
+                    <h4>准备进度</h4>
+                    <div class="plan-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${completionPercentage}%"></div>
+                        </div>
+                        <div class="progress-text">${completionPercentage}% complete</div>
+                    </div>
+                </div>
+            `;
+            
+            // 添加删除按钮
+            guideHTML += `
+                <div class="guide-section guide-actions">
+                    <button class="btn btn-danger delete-guide-from-modal" data-plan-id="${guide.id}">删除攻略</button>
+                </div>
+            `;
+            
+            // 显示内容
+            container.innerHTML = guideHTML;
+            
+            // 显示模态框
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            
+            // 添加关闭按钮事件
+            document.querySelector('.travel-guide-close').addEventListener('click', function() {
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // 添加删除按钮事件
+            document.querySelector('.delete-guide-from-modal').addEventListener('click', function() {
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+                showDeleteConfirmation(guide);
+            });
+            
+            // 初始化进度编辑功能
+            if (window.progressEditor && typeof window.progressEditor.init === 'function') {
+                setTimeout(() => {
+                    window.progressEditor.init();
+                }, 100);
+            }
+        }
+        
+        // 显示删除确认对话框
+        function showDeleteConfirmation(guide) {
+            console.log('显示删除确认对话框，攻略ID=', guide.id);
+            
+            // 移除任何现有的确认对话框
+            const existingModal = document.getElementById('deleteConfirmModal');
+            if (existingModal) {
+                document.body.removeChild(existingModal);
+            }
+            
+            const existingBackdrop = document.querySelector('.modal-backdrop');
+            if (existingBackdrop) {
+                document.body.removeChild(existingBackdrop);
+            }
+            
+            // 创建新的背景覆盖层
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            backdrop.style.position = 'fixed';
+            backdrop.style.top = '0';
+            backdrop.style.left = '0';
+            backdrop.style.width = '100%';
+            backdrop.style.height = '100%';
+            backdrop.style.backgroundColor = 'rgba(255, 241, 242, 0.8)'; // 淡粉色背景
+            backdrop.style.backdropFilter = 'blur(5px)';
+            backdrop.style.zIndex = '999';
+            document.body.appendChild(backdrop);
+            
+            // 创建新的确认对话框
+            const modal = document.createElement('div');
+            modal.id = 'deleteConfirmModal';
+            modal.style.position = 'fixed';
+            modal.style.top = '50%';
+            modal.style.left = '50%';
+            modal.style.transform = 'translate(-50%, -50%)';
+            modal.style.backgroundColor = '#fff5f7'; // 淡粉色背景
+            modal.style.border = '3px solid #f8a5c2'; // 粉色边框
+            modal.style.boxShadow = '0 5px 30px rgba(248, 165, 194, 0.5)'; // 粉色阴影
+            modal.style.borderRadius = '18px'; // 更圆润的边角
+            modal.style.padding = '30px';
+            modal.style.width = '400px';
+            modal.style.maxWidth = '90%';
+            modal.style.textAlign = 'center';
+            modal.style.zIndex = '1000';
+            
+            // 创建内容
+            const icon = document.createElement('div');
+            icon.style.fontSize = '52px';
+            icon.style.marginBottom = '15px';
+            icon.textContent = '🗑️';
+            
+            const title = document.createElement('h2');
+            title.style.fontSize = '26px';
+            title.style.color = '#e17b9d'; // 深粉色文字
+            title.style.marginBottom = '15px';
+            title.style.fontWeight = '600';
+            title.textContent = '确认删除';
+            
+            const message = document.createElement('p');
+            message.style.fontSize = '16px';
+            message.style.color = '#7b5d6f'; // 灰紫色文字
+            message.style.marginBottom = '25px';
+            message.style.lineHeight = '1.5';
+            message.textContent = `您确定要删除 "${guide.title || guide.destination}" 攻略吗？此操作将永久删除此攻略，无法恢复。`;
+            
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.style.display = 'flex';
+            buttonsContainer.style.justifyContent = 'center';
+            buttonsContainer.style.gap = '15px';
+            
+            const cancelButton = document.createElement('button');
+            cancelButton.style.padding = '12px 24px';
+            cancelButton.style.backgroundColor = '#b6e2d3'; // 薄荷绿按钮
+            cancelButton.style.color = '#2d6a4f';
+            cancelButton.style.border = 'none';
+            cancelButton.style.borderRadius = '50px'; // 完全圆角
+            cancelButton.style.fontSize = '16px';
+            cancelButton.style.cursor = 'pointer';
+            cancelButton.style.fontWeight = '600';
+            cancelButton.style.transition = 'all 0.3s ease';
+            cancelButton.textContent = '取消';
+            
+            // 添加悬停效果
+            cancelButton.onmouseover = function() {
+                this.style.backgroundColor = '#8bd3bd';
+                this.style.transform = 'scale(1.05)';
+            };
+            cancelButton.onmouseout = function() {
+                this.style.backgroundColor = '#b6e2d3';
+                this.style.transform = 'scale(1)';
+            };
+            
+            const confirmButton = document.createElement('button');
+            confirmButton.style.padding = '12px 24px';
+            confirmButton.style.backgroundColor = '#ffc2c7'; // 淡粉色按钮
+            confirmButton.style.color = '#c9184a'; // 深红色文字
+            confirmButton.style.border = 'none';
+            confirmButton.style.borderRadius = '50px'; // 完全圆角
+            confirmButton.style.fontSize = '16px';
+            confirmButton.style.fontWeight = '600';
+            confirmButton.style.cursor = 'pointer';
+            confirmButton.style.transition = 'all 0.3s ease';
+            confirmButton.textContent = '确认删除';
+            
+            // 添加悬停效果
+            confirmButton.onmouseover = function() {
+                this.style.backgroundColor = '#ffadb5';
+                this.style.transform = 'scale(1.05)';
+            };
+            confirmButton.onmouseout = function() {
+                this.style.backgroundColor = '#ffc2c7';
+                this.style.transform = 'scale(1)';
+            };
+            
+            // 添加事件
+            cancelButton.addEventListener('click', function() {
+                document.body.removeChild(backdrop);
+                document.body.removeChild(modal);
+                document.body.style.overflow = '';
+            });
+            
+            confirmButton.addEventListener('click', function() {
+                forceDeleteGuide(guide.id);
+                document.body.removeChild(backdrop);
+                document.body.removeChild(modal);
+                document.body.style.overflow = '';
+            });
+            
+            // 组装对话框
+            buttonsContainer.appendChild(cancelButton);
+            buttonsContainer.appendChild(confirmButton);
+            
+            modal.appendChild(icon);
+            modal.appendChild(title);
+            modal.appendChild(message);
+            modal.appendChild(buttonsContainer);
+            
+            // 添加到页面
+            document.body.appendChild(modal);
+            
+            // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // 强制彻底删除攻略
+        function forceDeleteGuide(planId) {
+            console.log(`开始强制删除攻略ID=${planId}`);
+            
+            // 从内存数组中移除攻略
+            realGuides = realGuides.filter(guide => guide.id != planId);
+            
+            // 清理所有localStorage
+            clearGuideFromAllStorage(planId);
+            
+            // 重新显示攻略列表
+            displayRealGuides();
+            
+            // 显示成功消息
+            showDeleteSuccessMessage();
+        }
+        
+        // 从所有可能的存储位置彻底清除攻略
+        function clearGuideFromAllStorage(planId) {
+            // 存储已处理的键，避免循环引用
+            const processedKeys = new Set();
+            
+            // 递归清理函数
+            function recursiveClear() {
+                let foundGuide = false;
+                
+                // 首先更新当前已知的savedGuides
+                let savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+                const originalLength = savedGuides.length;
+                savedGuides = savedGuides.filter(guide => guide.id != planId);
+                if (savedGuides.length !== originalLength) {
+                    localStorage.setItem('savedGuides', JSON.stringify(savedGuides));
+                    foundGuide = true;
+                    console.log(`从savedGuides中删除了攻略ID=${planId}`);
+                }
+                
+                // 检查所有localStorage键
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (processedKeys.has(key)) continue;
+                    
+                    processedKeys.add(key);
+                    try {
+                        const value = localStorage.getItem(key);
+                        if (!value) continue;
+                        
+                        // 检查是否直接包含攻略ID
+                        if (value.includes(`"id":${planId}`) || value.includes(`"id": ${planId}`)) {
+                            try {
+                                const data = JSON.parse(value);
+                                let modified = false;
+                                
+                                // 处理数组
+                                if (Array.isArray(data)) {
+                                    const newData = data.filter(item => {
+                                        if (!item || typeof item !== 'object') return true;
+                                        return item.id != planId;
+                                    });
+                                    
+                                    if (newData.length !== data.length) {
+                                        localStorage.setItem(key, JSON.stringify(newData));
+                                        modified = true;
+                                        foundGuide = true;
+                                    }
+                                }
+                                // 处理对象
+                                else if (data && typeof data === 'object') {
+                                    // 如果对象本身是攻略
+                                    if (data.id == planId) {
+                                        localStorage.removeItem(key);
+                                        modified = true;
+                                        foundGuide = true;
+                                    } 
+                                    // 检查对象的所有属性
+                                    else {
+                                        for (const prop in data) {
+                                            // 如果属性是数组
+                                            if (Array.isArray(data[prop])) {
+                                                const originalLength = data[prop].length;
+                                                data[prop] = data[prop].filter(item => {
+                                                    if (!item || typeof item !== 'object') return true;
+                                                    return item.id != planId;
+                                                });
+                                                
+                                                if (data[prop].length !== originalLength) {
+                                                    localStorage.setItem(key, JSON.stringify(data));
+                                                    modified = true;
+                                                    foundGuide = true;
+                                                }
+                                            }
+                                            // 如果属性是对象且包含ID
+                                            else if (data[prop] && typeof data[prop] === 'object' && data[prop].id == planId) {
+                                                delete data[prop];
+                                                localStorage.setItem(key, JSON.stringify(data));
+                                                modified = true;
+                                                foundGuide = true;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                if (modified) {
+                                    console.log(`从localStorage键 "${key}" 中彻底清除了攻略`);
+                                }
+                            } catch (e) {
+                                console.log(`尝试解析键 "${key}" 时出错:`, e);
+                            }
+                        }
+                    } catch (e) {
+                        console.error(`处理localStorage键 "${key}" 时出错:`, e);
+                    }
+                }
+                
+                // 如果找到并清除了攻略，再次运行以确保完全删除
+                return foundGuide;
+            }
+            
+            // 运行多次递归清理，确保彻底删除
+            let iteration = 0;
+            let continueClearing = true;
+            
+            while (continueClearing && iteration < 5) {
+                console.log(`清理迭代 ${iteration + 1}`);
+                continueClearing = recursiveClear();
+                iteration++;
+            }
+            
+            // 最后再次完全清除已知位置
+            localStorage.setItem('savedGuides', JSON.stringify(realGuides));
+            
+            console.log(`攻略ID=${planId} 已彻底从所有存储中清除`);
+        }
+        
+        // 显示删除成功消息
+        function showDeleteSuccessMessage() {
+            // 创建消息元素
+            const message = document.createElement('div');
+            message.className = 'message success';
+            message.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 24px;">✅</span>
+                    <span>攻略已成功删除！</span>
+                </div>
+            `;
+            
+            // 设置样式
+            Object.assign(message.style, {
+                position: 'fixed',
+                top: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: 'rgba(46, 204, 113, 0.95)',
+                color: 'white',
+                padding: '15px 25px',
+                borderRadius: '5px',
+                zIndex: '9999',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+                fontWeight: 'bold',
+                fontSize: '16px',
+                border: '2px solid rgba(39, 174, 96, 0.8)'
+            });
+            
+            // 添加到页面
+            document.body.appendChild(message);
+            
+            // 3秒后自动移除
+            setTimeout(() => {
+                // 添加淡出效果
+                message.style.transition = 'opacity 0.5s ease';
+                message.style.opacity = '0';
+                
+                // 完全移除元素
+                setTimeout(() => {
+                    if (document.body.contains(message)) {
+                        document.body.removeChild(message);
+                    }
+                }, 500);
+            }, 3000);
+        }
+        
+        // 立即执行扫描
+        scanForRealGuides();
+        
+        // 为现有的删除按钮添加事件
+        document.getElementById('deleteGuideBtn').addEventListener('click', function() {
+            const planId = document.querySelector('.edit-guide-modal').dataset.planId;
+            const guide = realGuides.find(g => g.id == planId);
+            if (guide) {
+                showDeleteConfirmation(guide);
+            }
+        });
+    })();
+    </script>
+</body>
+</html> 

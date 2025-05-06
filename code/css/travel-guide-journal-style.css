@@ -1,0 +1,854 @@
+/* 手账拼贴风格的旅行攻略样式 */
+:root {
+  --journal-bg: #f8f5f0;
+  --journal-primary: #e5c1c5;
+  --journal-secondary: #b3d4e5;
+  --journal-accent: #f0d890;
+  --journal-text: #5d4037;
+  --journal-ink: #3a3238;
+  --washi-tape-1: #ffdfd3;
+  --washi-tape-2: #c5e0dc;
+  --washi-tape-3: #f1d1b5;
+  --washi-tape-4: #b6d8f2;
+  --washi-tape-5: #e4b1ab;
+}
+
+/* 手账风格的模态窗口 */
+.travel-guide-modal {
+  background: var(--journal-bg);
+  border-radius: 3px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  border: none;
+  transform: translate(-50%, -50%) scale(0.9);
+  overflow: visible;
+}
+
+.travel-guide-modal::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: #fff;
+  z-index: -1;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1deg);
+}
+
+.travel-guide-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 手账标题区域 */
+.travel-guide-header {
+  background: transparent;
+  border-bottom: none;
+  padding: 30px 35px 10px;
+  position: relative;
+}
+
+.travel-guide-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, var(--washi-tape-1), var(--washi-tape-3), var(--washi-tape-1));
+  z-index: 1;
+}
+
+.travel-guide-header::after {
+  content: "TRAVEL JOURNAL";
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-family: 'Courier New', monospace;
+  color: rgba(93, 64, 55, 0.3);
+  font-size: 14px;
+  transform: rotate(5deg);
+  border: 1px solid rgba(93, 64, 55, 0.2);
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.travel-guide-title {
+  font-family: 'Brush Script MT', cursive;
+  color: var(--journal-ink);
+  font-size: 2.5rem;
+  text-shadow: none;
+  margin-left: 0;
+  padding-bottom: 15px;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.travel-guide-title::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  transform: rotate(0.5deg);
+}
+
+.travel-guide-close {
+  background: var(--journal-primary);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  opacity: 0.8;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.travel-guide-close:hover {
+  opacity: 1;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 内容区域 */
+.travel-guide-content {
+  background: var(--journal-bg);
+  background-image: 
+    linear-gradient(rgba(166, 166, 166, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(166, 166, 166, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 20px 20px 100px;
+}
+
+.travel-guide-container {
+  gap: 35px;
+}
+
+/* 内容分区样式 */
+.guide-section {
+  background: white;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: visible;
+  transform: rotate(0.5deg);
+  padding: 25px 20px;
+}
+
+.guide-section::before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 40%;
+  background: var(--washi-tape-2);
+  top: -10px;
+  left: 30%;
+  transform: rotate(-1deg);
+  z-index: -1;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.guide-section:nth-child(2n)::before {
+  background: var(--washi-tape-3);
+  left: 10%;
+  transform: rotate(1deg);
+}
+
+.guide-section:nth-child(3n)::before {
+  background: var(--washi-tape-4);
+  left: 50%;
+  transform: rotate(-0.5deg);
+}
+
+.guide-section::after {
+  display: none;
+}
+
+.guide-section:hover {
+  transform: rotate(0.5deg) translateY(-3px);
+}
+
+/* 目的地区域 */
+.guide-section.guide-destination {
+  background: white;
+  text-align: center;
+  padding: 40px 25px 30px;
+  transform: rotate(-0.5deg);
+}
+
+.guide-section.guide-destination::before {
+  height: 30px;
+  width: 60%;
+  background: var(--washi-tape-1);
+  left: 20%;
+  top: -15px;
+}
+
+.guide-destination h3 {
+  font-family: 'Brush Script MT', cursive;
+  color: var(--journal-ink);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  text-shadow: none;
+}
+
+.guide-destination h3::after {
+  background: var(--journal-primary);
+  height: 2px;
+  opacity: 0.5;
+}
+
+.guide-destination p {
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: var(--journal-text);
+}
+
+/* 新增：旅游指南标题和目的地样式 */
+.travel-guide-journal {
+  background: var(--journal-bg);
+  padding: 0;
+  position: relative;
+}
+
+.guide-header {
+  padding: 25px 25px 15px;
+  position: relative;
+  text-align: center;
+}
+
+.guide-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(90deg, var(--washi-tape-2), var(--washi-tape-5), var(--washi-tape-3));
+}
+
+.guide-title {
+  font-family: 'Brush Script MT', cursive;
+  color: var(--journal-ink);
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+  transform: rotate(-1deg);
+}
+
+.guide-destination {
+  font-family: 'Georgia', serif;
+  color: var(--journal-text);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.overview-text {
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: var(--journal-text);
+  padding: 0 15px;
+}
+
+/* 日程时间轴样式 */
+.day-activities-timeline {
+  margin: 20px 0;
+  padding: 10px 0;
+  position: relative;
+}
+
+.day-activities-timeline::before {
+  content: "";
+  position: absolute;
+  left: 35px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--washi-tape-1), var(--washi-tape-4), var(--washi-tape-5));
+  opacity: 0.7;
+}
+
+.timeline-item {
+  margin-bottom: 15px;
+  padding-left: 50px;
+  position: relative;
+  min-height: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-time {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--journal-ink);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  z-index: 1;
+  font-family: 'Georgia', serif;
+  border: 1px solid var(--journal-accent);
+  background: #fffdf5;
+}
+
+.timeline-content {
+  background: white;
+  border-radius: 3px;
+  padding: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  color: var(--journal-text);
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  position: relative;
+  border-left: 3px solid var(--journal-secondary);
+  transition: all 0.3s ease;
+}
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  width: 10px;
+  height: 2px;
+  background: var(--journal-secondary);
+  opacity: 0.7;
+}
+
+.timeline-item:nth-child(2) .timeline-content {
+  border-left-color: var(--journal-primary);
+}
+
+.timeline-item:nth-child(2) .timeline-content::before {
+  background: var(--journal-primary);
+}
+
+.timeline-item:nth-child(3) .timeline-content {
+  border-left-color: var(--journal-accent);
+}
+
+.timeline-item:nth-child(3) .timeline-content::before {
+  background: var(--journal-accent);
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(5px);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 旅行亮点 */
+.guide-section.guide-highlights {
+  transform: rotate(-0.8deg);
+}
+
+.guide-highlights h4, 
+.guide-daily-plan h4, 
+.guide-notes h4 {
+  font-family: 'Georgia', serif;
+  color: var(--journal-ink);
+  border-bottom: 1px dashed #d7d2cc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.guide-highlights h4::before,
+.guide-daily-plan h4::before,
+.guide-notes h4::before {
+  opacity: 0.8;
+}
+
+.guide-highlights ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.guide-highlights li {
+  flex: 1 1 200px;
+  background: #fcfcfa;
+  border: none;
+  border-radius: 3px;
+  padding: 20px 15px;
+  position: relative;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  transform: rotate(0.5deg);
+  font-family: 'Georgia', serif;
+  color: var(--journal-text);
+}
+
+.guide-highlights li:nth-child(2n) {
+  transform: rotate(-0.8deg);
+}
+
+.guide-highlights li:nth-child(3n) {
+  transform: rotate(1.2deg);
+}
+
+.guide-highlights li::before {
+  display: none;
+}
+
+.highlight-icon {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--journal-accent);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.guide-highlights li:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 每日行程 */
+.guide-section.guide-daily-plan {
+  transform: rotate(0.7deg);
+}
+
+.guide-daily-plan-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 5px 20px;
+}
+
+.guide-day-card {
+  min-width: 270px;
+  max-width: 300px;
+  background: white;
+  border-radius: 2px;
+  position: relative;
+  padding: 30px 15px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transform: rotate(0deg);
+  border: none;
+}
+
+.guide-day-card::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--washi-tape-5),
+    var(--washi-tape-5) 5px,
+    rgba(255, 255, 255, 0.5) 5px,
+    rgba(255, 255, 255, 0.5) 10px
+  );
+  transform: rotate(-45deg);
+  z-index: 1;
+}
+
+.guide-day-card:nth-child(2n)::before {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--washi-tape-2),
+    var(--washi-tape-2) 5px,
+    rgba(255, 255, 255, 0.5) 5px,
+    rgba(255, 255, 255, 0.5) 10px
+  );
+  left: auto;
+  right: 15px;
+}
+
+.guide-day-card:nth-child(3n)::before {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--washi-tape-3),
+    var(--washi-tape-3) 5px,
+    rgba(255, 255, 255, 0.5) 5px,
+    rgba(255, 255, 255, 0.5) 10px
+  );
+}
+
+.guide-day-card:nth-child(4n)::before {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--washi-tape-4),
+    var(--washi-tape-4) 5px,
+    rgba(255, 255, 255, 0.5) 5px,
+    rgba(255, 255, 255, 0.5) 10px
+  );
+}
+
+.guide-day-card:nth-child(2n) {
+  transform: rotate(-1deg);
+}
+
+.guide-day-card:nth-child(3n) {
+  transform: rotate(1.5deg);
+}
+
+.guide-day-number {
+  top: 5px;
+  left: 15px;
+  background: transparent;
+  color: var(--journal-ink);
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  padding: 0;
+  transform: none;
+  box-shadow: none;
+}
+
+.guide-day-details h5 {
+  font-family: 'Georgia', serif;
+  color: var(--journal-ink);
+  font-weight: bold;
+  padding-top: 15px;
+  border-top: 1px dashed #e0e0e0;
+}
+
+.guide-day-details p {
+  font-family: 'Georgia', serif;
+  color: var(--journal-text);
+  font-size: 0.95rem;
+}
+
+.day-location {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 3px 10px;
+  background: var(--journal-secondary);
+  opacity: 0.7;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  color: var(--journal-ink) !important;
+  font-weight: normal !important;
+}
+
+.day-location::before {
+  content: "📍";
+  margin-right: 5px;
+}
+
+.weather-tag {
+  display: inline-block;
+  margin: 8px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  background: #f8f8f8;
+  padding: 2px 8px;
+}
+
+.day-budget {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--journal-text);
+  border-top: 1px dashed #e0e0e0;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.guide-day-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 旅行信息区域 */
+.guide-section.guide-notes {
+  background: var(--journal-bg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  transform: rotate(-0.5deg);
+}
+
+.travel-info-grid {
+  gap: 30px;
+}
+
+.travel-info-item {
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  padding: 20px 15px;
+  position: relative;
+  overflow: visible;
+  gap: 15px;
+}
+
+.travel-info-item::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 25px;
+  background: var(--washi-tape-5);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.travel-info-item:nth-child(2n)::before {
+  background: var(--washi-tape-2);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.travel-info-item:nth-child(3n)::before {
+  background: var(--washi-tape-3);
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.travel-info-item:nth-child(4n)::before {
+  background: var(--washi-tape-4);
+  transform: translateX(-50%) rotate(1deg);
+}
+
+.travel-info-item:nth-child(2n) {
+  transform: rotate(1deg);
+}
+
+.travel-info-item:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+.info-icon {
+  background: transparent;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+}
+
+.info-content h5 {
+  font-family: 'Georgia', serif;
+  color: var(--journal-ink);
+}
+
+.info-content p {
+  font-family: 'Georgia', serif;
+  color: var(--journal-text);
+  font-size: 0.95rem;
+}
+
+.travel-info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 旅行攻略保存按钮 */
+.travel-guide-save-btn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.travel-guide-save-btn button {
+  background: var(--journal-accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(145, 92, 182, 0.4);
+}
+
+.travel-guide-save-btn button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.travel-guide-save-btn button:hover {
+  background: #7d408e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(145, 92, 182, 0.5);
+}
+
+.travel-guide-save-btn button:hover::before {
+  opacity: 1;
+}
+
+/* 生成图片按钮样式 */
+#generate-guide-image-btn {
+  background: var(--journal-highlight);
+  color: #2e2e2e;
+  box-shadow: 0 4px 8px rgba(255, 224, 102, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#generate-guide-image-btn:before {
+  content: "📷";
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+#generate-guide-image-btn:hover {
+  background: #ffd54f;
+  box-shadow: 0 6px 12px rgba(255, 224, 102, 0.5);
+}
+
+/* 水印样式 */
+.guide-watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Brush Script MT', cursive;
+  color: rgba(0, 0, 0, 0.15);
+  font-size: 20px;
+  transform: rotate(-5deg);
+  z-index: 100;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* 背景遮罩 */
+.travel-guide-overlay {
+  background: rgba(93, 64, 55, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+/* 徽章样式 */
+.destination-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.badge-style {
+  font-family: 'Courier New', monospace;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  color: var(--journal-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transform: rotate(-1deg);
+}
+
+.badge-style:nth-child(2n) {
+  transform: rotate(1deg);
+}
+
+.badge-style:nth-child(3n) {
+  transform: rotate(-0.5deg);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .travel-guide-title {
+    font-size: 28px;
+  }
+  
+  .guide-highlights ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .travel-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .guide-section.guide-notes {
+    padding: 20px;
+  }
+  
+  .destination-badges {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* 移动端按钮调整 */
+  .travel-guide-save-btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .travel-guide-save-btn button {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+/* 打印和图片生成样式调整 */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .travel-guide-container, .travel-guide-container * {
+    visibility: visible;
+  }
+  
+  .travel-guide-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .travel-guide-save-btn {
+    display: none !important;
+  }
+  
+  .guide-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 20px !important;
+  }
+  
+  .guide-day-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.guide-section:hover .highlight-icon {
+    transform: scale(1.2) rotate(10deg);
+} 

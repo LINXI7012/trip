@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Wise - Personal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/personal.css">
+    <link rel="stylesheet" href="css/personal-journal-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/airplane-cursor.css">
+</head>
+<body class="personal-page">
+    <div class="fullscreen-bg"></div>
+    <nav class="side-nav">
+        <ul>
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="create.html" class="nav-item">Create</a></li>
+            <li><a href="explore.html" class="nav-item">Explore</a></li>
+            <li><a href="personal.html" class="nav-item active">Personal</a></li>
+            <li><a href="plans.html" class="nav-item">Plans</a></li>
+        </ul>
+    </nav>
+    
+    <a href="index.html" class="back-nav">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 5L5 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    
+    <div class="main-content">
+        <div class="personal-content">
+            <!-- Washi tape decorations -->
+            <div class="washi-tape washi-tape-1"></div>
+            <div class="washi-tape washi-tape-2"></div>
+            
+            <!-- Profile Sidebar -->
+            <div class="profile-sidebar">
+                <div class="profile-info">
+                    <h2>John Traveler</h2>
+                    <p>Travel enthusiast since 2018</p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span>Countries</span>
+                        <span>12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Cities</span>
+                        <span>37</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Trips</span>
+                        <span>24</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Plans</span>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="travel-map-section">
+                <h2>Travel Map</h2>
+                <div id="map" class="map-container">
+                    <div class="map animate-fade-in">
+                        <img src="img/world map.png" alt="World Map" width="100%" height="auto" />
+                        <div class="map-pins">
+                            <!-- 巴黎：法国欧洲北部 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-paris tooltip" data-map-title="Paris" data-map-link="paris" data-map-image="paris.png" data-location-id="1" style="top: 32%; left: 47%; z-index: 1000;"></a>
+                            
+                            <!-- 东京：日本东亚 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-tokyo tooltip" data-map-title="Tokyo" data-map-link="tokyo" data-map-image="tokyo.png" data-location-id="2" style="top: 36%; left: 83%; z-index: 1000;"></a>
+                            
+                            <!-- 纽约：美国东海岸 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-newyork tooltip" data-map-title="New York" data-map-link="newyork" data-map-image="New York.png" data-location-id="3" style="top: 35%; left: 27%; z-index: 1000;"></a>
+                            
+                            <!-- 巴厘岛：印尼 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-bali tooltip" data-map-title="Bali" data-map-link="bali" data-map-image="bali.png" data-location-id="4" style="top: 57%; left: 76.5%; z-index: 1000;"></a>
+                            
+                            <!-- 罗马：意大利 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-rome tooltip" data-map-title="Rome" data-map-link="rome" data-map-image="rome.png" data-location-id="5" style="top: 36%; left: 49.5%; z-index: 1000;"></a>
+                            
+                            <!-- 悉尼：澳大利亚东部 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-sydney tooltip" data-map-title="Sydney" data-map-link="sydney" data-map-image="Sydney.png" data-location-id="6" style="top: 63%; left: 85%; z-index: 1000;"></a>
+                            
+                            <!-- 开罗：埃及 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-cairo tooltip" data-map-title="Cairo" data-map-link="cairo" data-map-image="cairo.png" data-location-id="7" style="top: 41%; left: 54%; z-index: 1000;"></a>
+                            
+                            <!-- 曼谷：泰国 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-bangkok tooltip" data-map-title="Bangkok" data-map-link="bangkok" data-map-image="bangkok.png" data-location-id="8" style="top: 48%; left: 74%; z-index: 1000;"></a>
+                            
+                            <!-- 里约：巴西 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-rio tooltip" data-map-title="Rio de Janeiro" data-map-link="rio" data-map-image="rio.png" data-location-id="9" style="top: 59%; left: 36%; z-index: 1000;"></a>
+                            
+                            <!-- 伦敦：英国 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-london tooltip" data-map-title="London" data-map-link="lundon" data-map-image="lundon.png" data-location-id="10" style="top: 30%; left: 45.5%; z-index: 1000;"></a>
+                            
+                            <!-- 洛杉矶：美国西海岸 -->
+                            <a href="javascript:void(0);" class="map-location-marker marker-la tooltip" data-map-title="Los Angeles" data-map-link="los Angeles" data-map-image="los Angeles.png" data-location-id="11" style="top: 38%; left: 18%; z-index: 1000;"></a>
+                        </div>
+                    </div>
+                </div>
+                <button id="mapReset" class="map-reset-button">Reset View</button>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="travel-timeline-section">
+                <div class="timeline-header">
+                    <h2>Travel Timeline</h2>
+                    <div class="timeline-navigation">
+                        <button id="timelineLeft" class="timeline-nav-btn disabled">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="timelineRight" class="timeline-nav-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="timelineContainer" class="timeline-container">
+                    <!-- Timeline items will be generated via JS -->
+                    <div class="timeline-item active" data-id="1">
+                        <img src="img/paris.png" alt="Paris">
+                        <h3>Paris, France</h3>
+                        <div class="date">June 2023</div>
+                        <p>Explored the city of lights, visited the Eiffel Tower, and enjoyed French cuisine.</p>
+                    </div>
+                    <div class="timeline-item" data-id="2">
+                        <img src="img/tokyo.png" alt="Tokyo">
+                        <h3>Tokyo, Japan</h3>
+                        <div class="date">March 2023</div>
+                        <p>Immersed in Japanese culture, visited temples, and tried authentic sushi.</p>
+                    </div>
+                    <div class="timeline-item" data-id="3">
+                        <img src="img/New York.png" alt="New York">
+                        <h3>New York, USA</h3>
+                        <div class="date">December 2022</div>
+                        <p>Holiday season in the big apple. Visited Times Square and Central Park.</p>
+                    </div>
+                    <div class="timeline-item" data-id="4">
+                        <img src="img/bali.png" alt="Bali">
+                        <h3>Bali, Indonesia</h3>
+                        <div class="date">August 2022</div>
+                        <p>Relaxed on beautiful beaches and explored ancient temples.</p>
+                    </div>
+                    <div class="timeline-item" data-id="5">
+                        <img src="img/rome.png" alt="Rome">
+                        <h3>Rome, Italy</h3>
+                        <div class="date">May 2022</div>
+                        <p>Toured the Colosseum and Vatican City, enjoyed authentic Italian pizza.</p>
+                    </div>
+                    <div class="timeline-item" data-id="6">
+                        <img src="img/Sydney.png" alt="Sydney">
+                        <h3>Sydney, Australia</h3>
+                        <div class="date">January 2022</div>
+                        <p>Saw the Opera House, enjoyed the beaches, and explored the outback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/airplane-cursor.js"></script>
+    <script>
+        // Ensure interactions work directly
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log("Direct implementation script running");
+            setTimeout(function() {
+                console.log("Implementing direct interactions for map markers and timeline items");
+                
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                const mapMarkers = document.querySelectorAll('.map-location-marker');
+                const timelineContainer = document.getElementById('timelineContainer');
+                const resetButton = document.getElementById('mapReset');
+                const leftNavBtn = document.getElementById('timelineLeft');
+                const rightNavBtn = document.getElementById('timelineRight');
+                
+                let activeIndex = 0;
+
+                // Function to activate location
+                function activateLocation(index) {
+                    if (index < 0 || index >= timelineItems.length) {
+                        console.error('Invalid index:', index);
+                        return;
+                    }
+                    
+                    console.log('Direct activateLocation called with index:', index);
+                    activeIndex = index;
+                    
+                    // Deactivate all timeline items and map markers
+                    timelineItems.forEach(item => {
+                        item.classList.remove('active');
+                        item.classList.add('inactive');
+                    });
+                    
+                    mapMarkers.forEach(marker => {
+                        marker.classList.remove('active');
+                    });
+                    
+                    // Activate selected timeline item
+                    const activeItem = timelineItems[index];
+                    activeItem.classList.remove('inactive');
+                    activeItem.classList.add('active');
+                    
+                    // Activate corresponding map marker
+                    const locationId = activeItem.getAttribute('data-id');
+                    console.log('Looking for map marker with location ID:', locationId);
+                    const activeMarker = document.querySelector(`.map-location-marker[data-location-id="${locationId}"]`);
+                    
+                    if (activeMarker) {
+                        console.log('Found active marker, adding active class');
+                        activeMarker.classList.add('active');
+                    } else {
+                        console.error('No matching map marker found for locationId:', locationId);
+                    }
+                    
+                    // Scroll timeline to center active item
+                    if (timelineContainer) {
+                        const itemLeft = activeItem.offsetLeft;
+                        const itemWidth = activeItem.offsetWidth;
+                        const containerWidth = timelineContainer.offsetWidth;
+                        
+                        timelineContainer.scrollTo({
+                            left: itemLeft - (containerWidth / 2) + (itemWidth / 2),
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Update navigation buttons state
+                    updateNavButtonsState();
+                }
+                
+                // Function to update navigation buttons state
+                function updateNavButtonsState() {
+                    if (leftNavBtn) {
+                        leftNavBtn.classList.toggle('disabled', activeIndex === 0);
+                    }
+                    
+                    if (rightNavBtn) {
+                        rightNavBtn.classList.toggle('disabled', activeIndex === timelineItems.length - 1);
+                    }
+                }
+                
+                // Function to reset view
+                function resetView() {
+                    timelineItems.forEach(item => {
+                        item.classList.remove('active', 'inactive');
+                    });
+                    
+                    mapMarkers.forEach(marker => {
+                        marker.classList.remove('active');
+                    });
+                    
+                    activeIndex = -1;
+                    updateNavButtonsState();
+                }
+                
+                // Add click event listeners to timeline items
+                timelineItems.forEach((item, index) => {
+                    item.addEventListener('click', function() {
+                        console.log('Direct timeline item click:', index);
+                        activateLocation(index);
+                    });
+                });
+                
+                // Add click event listeners to map markers
+                mapMarkers.forEach((marker) => {
+                    const locationId = marker.getAttribute('data-location-id');
+                    marker.addEventListener('click', function(e) {
+                        console.log('Direct map marker click with locationId:', locationId);
+                        e.preventDefault();
+                        
+                        // Find matching timeline item index
+                        const index = Array.from(timelineItems).findIndex(
+                            item => item.getAttribute('data-id') === locationId
+                        );
+                        
+                        console.log('Found matching timeline item index:', index);
+                        
+                        if (index !== -1) {
+                            activateLocation(index);
+                        }
+                    });
+                });
+                
+                // Add click event to reset button
+                if (resetButton) {
+                    resetButton.addEventListener('click', resetView);
+                }
+                
+                // Add click events to navigation buttons
+                if (leftNavBtn) {
+                    leftNavBtn.addEventListener('click', function() {
+                        if (activeIndex > 0) {
+                            activateLocation(activeIndex - 1);
+                        }
+                    });
+                }
+                
+                if (rightNavBtn) {
+                    rightNavBtn.addEventListener('click', function() {
+                        if (activeIndex < timelineItems.length - 1) {
+                            activateLocation(activeIndex + 1);
+                        }
+                    });
+                }
+                
+                // Initialize with first location active
+                activateLocation(0);
+            }, 500);
+        });
+    </script>
+</body>
+</html> 
